@@ -51,6 +51,7 @@ def broadcast(message):
         try:
             send_msg(message, connection)
         except:
+            logging.exception('error while sending msg')
             raise
 
 def quiz():
