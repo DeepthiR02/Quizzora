@@ -40,7 +40,7 @@ questions = 0
 def accept_connections():
     while len(players) < max_players: 
         conn, addr = s.accept() 
-        username = receiveMsg(conn) 
+        username = receive_msg(conn) 
         if username is False:
             continue
 
@@ -50,20 +50,20 @@ def accept_connections():
 
         print(f"Accepted new connection {addr}")
         print(f"Player username is {username}")
-        sendMsg("\nWaiting for other players to connect...\n", conn)
+        send_msg("\nWaiting for other players to connect...\n", conn)
 
 
 def broadcast(message):
     for connection in sockets_list:
         try:
-            sendMsg(message, connection)
+            send_msg(message, connection)
         except:
             raise
 
 def quiz():
     global index, display_options 
-    index = selectQuestion(asked_que) 
-    display_options = displayOptions(index) 
+    index = select_question(asked_que) 
+    display_options = display_options(index) 
     broadcast(f"\nQ. {questions_list[index]}\n") 
     #time.sleep(0.5)
 
@@ -86,19 +86,19 @@ def check_answer(option, buzzer_player):
     time.sleep(0.5)
 
     if option == "false": 
-        sendMsg("You get -0.5 score", buzzer_player)
+        send_msg("You get -0.5 score", buzzer_player)
     elif (49 <= ord(option[0]) <= 52): 
         option = int(option)
-        correct = checkOption(display_options, option, index)
+        correct = check_option(display_options, option, index)
    
 
     if correct:
-        sendMsg("\nYou got it right!", buzzer_player)
-        sendMsg("You get +1 score", buzzer_player)
+        send_msg("\nYou got it right!", buzzer_player)
+        send_msg("You get +1 score", buzzer_player)
         scores_list[players[buzzer_player]] += 1
     else:
-        sendMsg("\nOops! Wrong answer!", buzzer_player)
-        sendMsg("You get -0.5 score", buzzer_player)
+        send_msg("\nOops! Wrong answer!", buzzer_player)
+        send_msg("You get -0.5 score", buzzer_player)
         scores_list[players[buzzer_player]] -= 0.5
 
     if scores_list[players[buzzer_player]] >= max_score:
@@ -152,18 +152,18 @@ while True:
     else:
         for socket in sockets_list: 
             if socket != buzzer_player and socket != s:
-                sendMsg(f"\n{players[buzzer_player]} pressed the buzzer first..", socket)
-                sendMsg(f"Please wait for {players[buzzer_player]} to answer", socket)
+                send_msg(f"\n{players[buzzer_player]} pressed the buzzer first..", socket)
+                send_msg(f"Please wait for {players[buzzer_player]} to answer", socket)
 
-    sendMsg("Answer", buzzer_player) 
+    send_msg("Answer", buzzer_player) 
 
-    option = receiveMsg(buzzer_player) 
+    option = receive_msg(buzzer_player) 
     if option:
-        game_over = checkAnswer(option, buzzer_player)
+        game_over = check_answer(option, buzzer_player)
     else:
-        game_over = checkAnswer("false", buzzer_player)
+        game_over = check_answer("false", buzzer_player)
 
-    scoreTable() 
+    score_table() 
 
     if game_over:
         break
