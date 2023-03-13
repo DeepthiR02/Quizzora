@@ -25,7 +25,7 @@ def buzzer():
         if read[0] == sys.stdin: 
             pressed = sys.stdin.readline()
         elif read[0] == client_socket: 
-            message = receiveMsg(client_socket)
+            message = receive_msg(client_socket)
             print(message)
             return 
     
@@ -34,7 +34,7 @@ def buzzer():
 
     if pressed == "":
         pressed = "false"
-    sendMsg(pressed, client_socket)
+    send_msg(pressed, client_socket)
 
 def answer():
     print("\nCongratulations!! You pressed the buzzer first..")
@@ -54,13 +54,13 @@ def answer():
     
     if answer == "":
         answer = "false"
-    sendMsg(answer, client_socket)   
+    send_msg(answer, client_socket)   
 
 my_username = input("Enter your username: ") 
-sendMsg(my_username, client_socket)
+send_msg(my_username, client_socket)
 
 while True:
-    message = receiveMsg(client_socket)
+    message = receive_msg(client_socket)
     if message is False:
         continue
 
