@@ -80,7 +80,7 @@ def score_table():
     for player in scores_list:
         broadcast(f"{player} : {scores_list[player]}")
 
-def checkAnswer(option, buzzer_player):
+def check_answer(option, buzzer_player):
     global display_options, index
     correct = False 
     time.sleep(0.5)
