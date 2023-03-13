@@ -18,14 +18,14 @@ def select_question(asked_que):
     return index
 
 
-
+no_opt = "None of the above"
 def display_options(index):
 
     display_options = random.sample(options_list[index], 4)
 
-    if "None of the above" in display_options: 
-        display_options.remove("None of the above")
-        display_options.append("None of the above")    
+    if no_opt in display_options: 
+        display_options.remove(no_opt)
+        display_options.append(no_opt)    
 
     return display_options
 
