@@ -74,7 +74,7 @@ def quiz():
 
     broadcast("Buzzer") 
 
-def scoreTable():
+def score_table():
     time.sleep(1)
     broadcast("\nYour Scores")
     for player in scores_list:
