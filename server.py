@@ -58,7 +58,7 @@ def broadcast(message):
         try:
             sendMsg(message, connection)
         except:
-            pass
+            raise
 
 def quiz():
     global index, display_options 
