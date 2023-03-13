@@ -90,8 +90,7 @@ def check_answer(option, buzzer_player):
     elif (49 <= ord(option[0]) <= 52): 
         option = int(option)
         correct = checkOption(display_options, option, index)
-    else: 
-        pass
+   
 
     if correct:
         sendMsg("\nYou got it right!", buzzer_player)
