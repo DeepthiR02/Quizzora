@@ -1,13 +1,13 @@
 import random
 import sys
-from questionBank import *
+import questionBank
 
 HEADER_SIZE = 10 
 IP = "127.0.0.1"
 PORT = 1234
 TIMEOUT = 10 
 
-def selectQuestion(asked_que):
+def select_question(asked_que):
     
     index = random.randrange(0, len(questions_list))
 
@@ -19,7 +19,7 @@ def selectQuestion(asked_que):
 
 
 
-def displayOptions(index):
+def display_options(index):
 
     display_options = random.sample(options_list[index], 4)
 
@@ -30,7 +30,7 @@ def displayOptions(index):
     return display_options
 
 
-def checkOption(current_options, option, index):
+def check_option(current_options, option, index):
 
     if current_options[option - 1] == options_list[index][0]:
         return True
@@ -38,13 +38,13 @@ def checkOption(current_options, option, index):
         return False
 
 
-def sendMsg(message, socket):
+def send_msg(message, socket):
     string = message.encode("utf-8")
     string_header = f"{len(string):>{HEADER_SIZE}}".encode("utf-8")
     socket.send(string_header + string)
 
 
-def receiveMsg(socket):
+def receive_msg(socket):
     try:
         message_header = socket.recv(HEADER_SIZE)
         if not len(message_header):
