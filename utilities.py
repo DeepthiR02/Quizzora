@@ -52,6 +52,7 @@ def receive_msg(socket):
         message_len = int(message_header.decode("utf-8").strip())
         return socket.recv(message_len).decode("utf-8")
     except KeyboardInterrupt:
-        sys.exit()
+        raise
     except:
-        return False 
+        except BaseException as e:    
+            raise e
