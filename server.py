@@ -8,13 +8,6 @@ os.system("python questionBank.py")
 
 import utilities
 import questionBank
-# from utilities import sendMsg
-# from utilities import receiveMsg
-# from utilities import selectQuestion
-# from utilities import displayOptions
-# from utilities import checkOption
-# from questionBank import questions_list
-
 
 os.system('clear')
 
