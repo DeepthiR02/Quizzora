@@ -35,13 +35,13 @@ questions_list = ["Grand Central Terminal, Park Avenue, New York is the world's 
                   "Who was the first Indian female astronaut ?",
                   "The beaver is the national embelem of which country?"
                   ]
+ none_option="None of the above"
 
-
-options_list = [["largest railway station", "highest railway station", "longest railway station", "None of the above"],
+options_list = [["largest railway station", "highest railway station", "longest railway station", none_option],
                 ["Third World Nations", "First World Nations",
                  "Second World Nations", "Fourth World Nations"],
                 ["France and England", "Greek and Persian forces",
-                 "Civil war in England", "None of the above"],
+                 "Civil war in England", none_option],
                 ["ASEAN", "ILO", "WHO", "UNESCO"],
                 ["Protection of human rights", "Protection of Cruelty to animals",
                  "Environment protection", "Protection of historic monuments"],
@@ -77,6 +77,6 @@ options_list = [["largest railway station", "highest railway station", "longest 
                 ["7","8","6","10"],
                 ["Xf","Re","Si","Pa"],
                 ["God of Mischief","God of Gods","God of Dwarves","God of Thunder"],
-                ["Kalpana Chawla","Priya Ghoshal","Sunita Williams","None of the above"],
+                ["Kalpana Chawla","Priya Ghoshal","Sunita Williams",none_option],
                 ["Canada","Argentina","Iceland","Zimbabwe"],
                 ]
