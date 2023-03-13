@@ -5,8 +5,8 @@ import sys
 import time
 from termios import tcflush, TCIFLUSH
 
-from questionBank import * 
-from utilities import * 
+import questionBank 
+import utilities 
 
 os.system('clear')
 
